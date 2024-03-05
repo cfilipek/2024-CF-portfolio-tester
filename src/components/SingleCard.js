@@ -1,6 +1,6 @@
 import './SingleCard.css'
 
-export default function SingleCard({ card, handleChoice, flipped, disabled, color }) {
+export default function SingleCard({ cardCover, card, handleChoice, flipped, disabled, color }) {
 
     const handleClick = () => {
         if(!disabled) {
@@ -19,7 +19,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled, colo
             <img 
             style={{borderColor: color}}
             className='back' 
-            src="/img/cover.jpg" 
+            src={cardCover} 
             onClick={handleClick} 
             alt="card back"/>
           </div>

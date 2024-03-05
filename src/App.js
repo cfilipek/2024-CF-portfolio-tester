@@ -16,6 +16,17 @@ function App() {
   const [showModal, setShowModal] = useState(false)
   const [date, setDate] = useState(new Date())
 
+  const cardImages = [
+    {"src": "/img/memory-icons-01.png", matched: false},
+    {"src": "/img/memory-icons-02.png", matched: false},
+    {"src": "/img/memory-icons-03.png", matched: false},
+    {"src": "/img/memory-icons-04.png", matched: false},
+    {"src": "/img/memory-icons-05.png", matched: false},
+    {"src": "/img/memory-icons-06.png", matched: false}
+  ]
+
+  const cardCover = "/img/cover.jpg"
+
   const signs = ['Aries: The Ram','Taurus: The Bull','Gemini: The Twins','Cancer: The Crab','Leo: The Lion','Virgo: The Virgin','Libra: The Scales','Scorpio: The Scorpion','Sagittarius: The Archer','Capricorn: The Goat','Aquarius: The Water Bearer','Pisces: The Fish'];
 
   var sign = Number(new Intl.DateTimeFormat('fr-TN-u-ca-persian', {month: 'numeric'}).format(Date.now())) - 1;
@@ -83,7 +94,7 @@ function App() {
       <BoopButton audio={audio} color={color} changeColor={changeBackground} label={'Change Background'} />
 
       <div style={{backgroundColor: color}} className='game-bkgd'>
-        <MemoryGame audio={audio} color={'yellow'}/>
+        <MemoryGame cardCover={cardCover} cardImages={cardImages} audio={audio} color={'yellow'}/>
       </div>
 
       {showModal && <Modal audio={audio} color={color} handleClose={handleClose}>

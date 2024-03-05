@@ -2,16 +2,7 @@ import { useEffect, useState } from 'react';
 import BoopButton from './BoopButton';
 import SingleCard from './SingleCard';
 
-const cardImages = [
-  {"src": "/img/memory-icons-01.png", matched: false},
-  {"src": "/img/memory-icons-02.png", matched: false},
-  {"src": "/img/memory-icons-03.png", matched: false},
-  {"src": "/img/memory-icons-04.png", matched: false},
-  {"src": "/img/memory-icons-05.png", matched: false},
-  {"src": "/img/memory-icons-06.png", matched: false}
-]
-
-export default function MemoryGame({ color, audio }) {
+export default function MemoryGame({ color, audio, cardImages, cardCover }) {
 
     const [cards, setCards] = useState([])
     const [turns, setTurns] = useState(0)
@@ -82,6 +73,7 @@ export default function MemoryGame({ color, audio }) {
     <div className='card-grid'>
     {cards.map(card => (
       <SingleCard 
+       cardCover={cardCover}
        color={color}
        key={card.id} 
        card={card} 
